@@ -1,0 +1,23 @@
+name: 'Run Unit Tests'
+description: 'Run unit test from the project'
+runs:
+  using: composite
+  steps:
+    - name: Install dependencies
+      if: inputs.caching == 'true'
+      id: cache
+      uses: actions/cache@v3
+      with:
+        path: node_modules
+        key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
+    - name: Install dependencies
+      if: steps.cache.outputs.cache-hit != 'true'
+      id: install
+      run: |
+        npm ci
+        echo "cache='${{inputs.caching}}'" >> $GITHUB_OUTPUT
+      shell: bash
+    - name: Run unit test
+      run: npm run test
+      shell: bash
+      
