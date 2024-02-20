@@ -18,8 +18,11 @@ runs:
         echo "cache='${{inputs.caching}}'" >> $GITHUB_OUTPUT
       shell: bash
     - name: Run unit test
-      run: npm run test
+      run: npm run test &
       shell: bash
     - name: Run unit test 2
-      run: npm run test
+      run: npm run test &
+      shell: bash
+    - name: Wait process in bg
+      run: wait
       shell: bash
