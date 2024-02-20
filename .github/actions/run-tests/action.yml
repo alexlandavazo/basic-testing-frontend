@@ -19,10 +19,12 @@ runs:
       shell: bash
     - name: Run unit test
       run: npm run test &
+      id: run-test-1
       shell: bash
     - name: Run unit test 2
       run: npm run test &
+      id: run-test-2
       shell: bash
     - name: Wait process in bg
-      run: wait
+      run: wait ${{steps.run-test-1.id}} ${{steps.run-test-2.id}}
       shell: bash
