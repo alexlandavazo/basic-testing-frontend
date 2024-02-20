@@ -20,4 +20,6 @@ runs:
     - name: Run unit test
       run: npm run test
       shell: bash
-      
+    - name: Run unit test 2
+      run: npm run test
+      shell: bash
