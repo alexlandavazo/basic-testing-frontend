@@ -1,0 +1,16 @@
+name: "Reusable Workflow"
+on: push 
+jobs: 
+  run-unit-test:
+    runs-on: ubuntu latest
+    steps:
+      - name: 'Install dependencies'
+        run: npm ci
+      - name: Run Unit Test
+        run: npm run test
+  wait:
+    runs-on: ubuntu latest
+    steps:
+      - name: 'Wait for 1 minute'
+        run: wait 60
+
