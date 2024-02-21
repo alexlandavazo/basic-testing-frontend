@@ -10,4 +10,4 @@ jobs:
       - name: Get code
         uses: actions/checkout@v3
       - name: Run Unit Tests
-        uses: ./.github/workflows/reusable-workflow.yml@main
+        uses: alexlandavazo/basic-testing-frontend/.github/workflows/reusable-workflow.yml@main
