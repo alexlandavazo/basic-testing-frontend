@@ -18,11 +18,11 @@ runs:
         echo "cache='${{inputs.caching}}'" >> $GITHUB_OUTPUT
       shell: bash
     - name: Run unit test
-      run: sleep 150 &
+      run: sleep 150
       id: run-test-1
       shell: bash
     - name: Run unit test 2
-      run: sleep 1m &
+      run: sleep 1m 
       id: run-test-2
       shell: bash
     - name: Wait process in bg
