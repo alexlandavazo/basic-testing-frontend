@@ -1,6 +1,6 @@
 name: "Reusable Workflow"
 on:
-  - push 
+  workflow_call
 jobs:
   run-unit-test:
     runs-on: ubuntu latest
